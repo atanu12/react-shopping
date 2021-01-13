@@ -1,7 +1,8 @@
 import Axios from 'axios'
 import { commerce, random } from 'faker'
 import React, {useEffect, useState}  from 'react'
-import {Container, Row} from 'reactstrap'
+import {Container, Row,Col} from 'reactstrap'
+import CardItems from './CardItems'
 
 const APIKEY= '563492ad6f9170000100000174411b292a244983afd9dbb63b248c28'
 const URL = "https://api.pexels.com/v1/search?query=laptop&per_page=6&page=1"
@@ -45,7 +46,9 @@ const BuyPage =( {addInCart})=> {
 
         <Row>
             {product.map(product =>(
-                <span key={product.id}> {product.productName} </span>
+               <Col md={4} key={product.id}>
+                <CardItems product={product} addInCart={addInCart} /> 
+               </Col>
             ))}
         </Row>
         </Container>
