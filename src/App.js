@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
-import { toast } from 'react-toastify';
+import {ToastContainer ,toast } from 'react-toastify';
+import {Container, Row, Col} from 'reactstrap'
 import BuyPage from './components/BuyPage';
+import Carts from './components/Carts';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       toast(`Alrady added in the cart`,{
         type:'error'
       })
+      return;
     }
 
     setCartItem([...cartItem, item])
@@ -40,9 +42,17 @@ function App() {
 
 
   return (
-    <div className="App">
-     <BuyPage addInCart={addInCart}/>
-    </div>
+   <Container fluid>
+      <ToastContainer/>
+      <Row>
+        <Col md={8}>
+          <BuyPage addInCart={addInCart}/>
+        </Col>
+        <Col md={4}>
+          <Carts cartItem={cartItem} buy={buy} removeItem={removeItem}  />
+        </Col>
+      </Row>
+   </Container>
   );
 }
 
