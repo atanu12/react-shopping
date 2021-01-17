@@ -43,9 +43,9 @@ const Carts =( {cartItem, buy,removeItem} )=> {
             {
                 cartItem.length>=1 ? (
                     <Card className="text-center mt-3">
-                        <CardHeder >
+                        <CardHeader >
                             Toatal 
-                        </CardHeder>
+                        </CardHeader>
                         <CardBody>
                             Your Amount for {cartItem.length} product is {amount} 
                         </CardBody>
