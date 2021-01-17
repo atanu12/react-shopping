@@ -21,7 +21,7 @@ function App() {
       toast(`Alrady added in the cart`,{
         type:'error'
       })
-      
+      return
     }
 
     setCartItem([...cartItem, item])
